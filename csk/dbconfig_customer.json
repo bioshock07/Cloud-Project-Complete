@@ -1,0 +1,8 @@
+{
+		"softwarefolder":"G:\\csk\\",
+		"websitefolder":"G:\\csk\\mybankwebsite\\",
+		"databasename":"dbCustomer",
+		"databaseusername":"root",
+		"databasepassword":"systemck"	,
+		"databasetestquery":"SELECT CONCAT(  '[',  GROUP_CONCAT(JSON_OBJECT('_id', _id)), ']') as jsonresult from tCustomer;"
+}

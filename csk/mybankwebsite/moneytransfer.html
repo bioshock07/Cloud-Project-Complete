@@ -1,0 +1,77 @@
+<head>
+	<title>MYBANK MONEYTRANSFER PAGE</title>
+	<script src="./scripts/angular.1.7.8.js"></script>
+	<script src="./scripts/_mybankAPIgateway.js"></script>
+</head>
+
+
+<h1 align=center>MYBANK MONEYTRANSFER</h1>
+<body ng-app="_mybankAPIgateway" ng-controller="_mybankAPIgatewayController">
+<form id="frm" name="frm">
+			
+			<div align=center>
+				
+				<hr>
+				Account ID: &nbsp;<input id="accountid" type="text" name="accountid" ng-model="form.moneytransfer._ID" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				From account: &nbsp;<input id="fromaccount" type="text" name="fromaccount" ng-model="form.moneytransfer.from_account" />
+
+				To account: &nbsp;<input id="toaccount" type="text" name="toaccount" ng-model="form.moneytransfer.to_account" />
+
+				Amount: &nbsp;<input id="amount" type="text" name="amount" ng-model="form.moneytransfer.amount" />
+				<hr>
+				<br>
+				<button name="btnselect" ng-click="data.moneytransfer.selectquery();">Read</button>
+				&nbsp;&nbsp;
+				<button name="btnupdate" ng-click="data.moneytransfer.updatequery();">Update</button>
+				&nbsp;&nbsp;
+				<button name="btndelete" ng-click="data.moneytransfer.deletequery();">Delete</button>
+				&nbsp;&nbsp;
+				<button name="btninsert" ng-click="data.moneytransfer.insertquery();">Create</button>
+				
+			</div>
+	
+	<br>
+	<hr>
+	
+	<div align=center>
+		<br><b>account LIST</b>
+		<br>
+
+		<table align="center">
+		
+			<tr>
+				<td align="center">ID</td>
+				<td align="center">From_Account</td>
+				<td align="center">To_Account</td>
+				<td align="center">Amount</td>
+			</tr>
+			<tr><td colspan=100%><hr></td></tr>
+			<tr style="color:blue;" ng-repeat="moneytransfer in data.queryresponse">
+				<td align="center">{{moneytransfer._ID}}</td>
+				<td align="center">{{moneytransfer.from_account}}</td>
+				<td align="center">{{moneytransfer.to_account}}</td>
+				<td align="center">{{moneytransfer.amount}}</td>
+				
+			</tr>
+			
+		</table>
+	</div>
+
+	<div align=center>
+		<br>
+		<hr>
+		<a href="mybank.html">Back to Main Menu</a>
+	</div>
+</form>
+
+
+<div id="debug" ng-show="1==1" style="background-color:grey;color:white;">
+			<br>DEBUG
+				<br>query: {{data.query}}
+				<br>querytype: {{data.querytype}}
+				<br>fired query status: {{msg}}
+				
+			</div>
+
+</body>
